@@ -27,6 +27,12 @@ sendMessageBtn.addEventListener('click', () => {
     return;
   }
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
   if (!isEmailJsConfigured()) {
     alert('EmailJS is not configured. Please add your public key, service ID, and template ID to the script.');
     return;
